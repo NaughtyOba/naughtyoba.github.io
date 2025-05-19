@@ -3,35 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NaughtyOba</title>
+    <title>NaughtyOba Game Studio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to NaughtyOba's Website</h1>
-        <p>A personal space for projects, ideas, and more!</p>
+        <h1 id="header-title">Welcome to NaughtyOba Game Studio</h1>
+        <p id="header-subtitle">A Canadian game development studio dedicated to creating innovative gaming experiences.</p>
+        <div class="lang-toggle">
+            <button id="lang-btn" onclick="toggleLanguage()">中文</button>
+        </div>
     </header>
 
     <main>
         <section id="about">
-            <h2>About Me</h2>
-            <p>Hi, I'm NaughtyOba! This is my little corner of the internet where I share my projects and thoughts.</p>
+            <h2 id="about-title">About NaughtyOba Game Studio</h2>
+            <p id="about-text">NaughtyOba Game Studio, based in Canada, is committed to delivering high-quality and innovative games for a global audience. We value creativity, collaboration, and excellence in all our projects.</p>
         </section>
 
         <section id="issues" class="highlight">
-            <h2>Issues & Feedback</h2>
-            <p>Found a bug or have a suggestion? Check out the issues section on GitHub and let me know!</p>
-            <a href="https://github.com/NaughtyOba/naughtyoba.github.io/issues" target="_blank" class="issues-btn">Visit Issues Page</a>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <p>Stay tuned for some exciting projects coming soon!</p>
+            <h2 id="issues-title">ジュ & Feedback</h2>
+            <p id="issues-text">If you encounter any issues or wish to provide feedback, please visit our GitHub support page to share your thoughts. We appreciate your input.</p>
+            <a href="https://github.com/NaughtyOba/naughtyoba.github.io/issues" target="_blank" class="issues-btn" id="issues-btn">Visit Support Page</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 NaughtyOba. All rights reserved.</p>
+        <p id="footer-text">© 2025 NaughtyOba Game Studio. All rights reserved.</p>
     </footer>
+
+    <script>
+        let isEnglish = true;
+
+        const translations = {
+            en: {
+                headerTitle: "Welcome to NaughtyOba Game Studio",
+                headerSubtitle: "A Canadian game development studio dedicated to creating innovative gaming experiences.",
+                aboutTitle: "About NaughtyOba Game Studio",
+                aboutText: "NaughtyOba Game Studio, based in Canada, is committed to delivering high-quality and innovative games for a global audience. We value creativity, collaboration, and excellence in all our projects.",
+                issuesTitle: "Support & Feedback",
+                issuesText: "If you encounter any issues or wish to provide feedback, please visit our GitHub support page to share your thoughts. We appreciate your input.",
+                issuesBtn: "Discussion & Bug",
+                footerText: "© 2025 NaughtyOba Game Studio. All rights reserved.",
+                langBtn: "中文"
+            },
+            zh: {
+                headerTitle: "欢迎访问NaughtyOba游戏工作室",
+                headerSubtitle: "一家致力于创造创新游戏体验的加拿大游戏开发工作室。",
+                aboutTitle: "关于NaughtyOba游戏工作室",
+                aboutText: "NaughtyOba游戏工作室位于加拿大，致力于为全球玩家提供高质量且创新的游戏。我们重视创意、协作和卓越，贯穿于所有项目之中。",
+                issuesTitle: "支持与反馈",
+                issuesText: "如果您遇到任何问题或希望提供反馈，请访问我们的GitHub支持页面分享您的意见。我们非常感谢您的反馈。",
+                issuesBtn: "讨论 & Bug提交",
+                footerText: "© 2025 NaughtyOba游戏工作室。保留所有权利。",
+                langBtn: "English"
+            }
+        };
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const lang = isEnglish ? "en" : "zh";
+            document.getElementById("header-title").textContent = translations[lang].headerTitle;
+            document.getElementById("header-subtitle").textContent = translations[lang].headerSubtitle;
+            document.getElementById("about-title").textContent = translations[lang].aboutTitle;
+            document.getElementById("about-text").textContent = translations[lang].aboutText;
+            document.getElementById("issues-title").textContent = translations[lang].issuesTitle;
+            document.getElementById("issues-text").textContent = translations[lang].issuesText;
+            document.getElementById("issues-btn").textContent = translations[lang].issuesBtn;
+            document.getElementById("footer-text").textContent = translations[lang].footerText;
+            document.getElementById("lang-btn").textContent = translations[lang].langBtn;
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
 </html>
